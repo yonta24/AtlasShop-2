@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AffStore - curated everyday essentials.">
+  <title>AffStore — E-commerce</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- =====================================================
+       HEADER / NAVIGATION
+       The navigation stays visible while scrolling.
+       JavaScript is intentionally NOT used at this stage.
+       ===================================================== -->
+  <header class="site-header">
+    <div class="container header-top">
+      <a class="logo" href="#home" aria-label="AffStore Home">Aff<span>Store</span></a>
+
+      <form class="search-box" action="#shop" role="search">
+        <span aria-hidden="true">⌕</span>
+        <input id="search-input" type="search" name="q" placeholder="Search products, electronics, fashion..." aria-label="Search products" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="suggest">
+        <button type="submit" aria-label="Search">→</button>
+        <ul id="suggest" class="suggest" role="listbox" hidden></ul>
+      </form>
+
+      <div class="header-actions">
+        <a class="header-action" href="#cart" aria-label="Shopping cart">
+          🛒 <span class="cart-count">0</span> Cart
+        </a>
+        <a class="account-icon" href="#contact" aria-label="Account">●</a>
+      </div>
+    </div>
+
+    <nav class="container main-nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =====================================================
+         HOME
+         ===================================================== -->
+    <section id="home" class="page-section home-section">
+      <div class="container">
+        <div class="section-marker">
+          <span>01</span>
+          <strong>Home</strong>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-content">
+            <span class="eyebrow">Curated essentials</span>
+            <h1>Simple Shopping,<br>Everyday Quality</h1>
+            <p>
+              Find top essentials in electronics, fashion, and home goods
+              curated for reliability and lasting design.
+            </p>
+            <a class="btn btn-primary" href="#shop">Shop Now →</a>
+          </div>
+          <div class="hero-image-placeholder">
+            <span class="blob b1"></span><span class="blob b2"></span>
+            <img class="hero-img" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85" alt="Wireless headphones">
+            <img class="hero-img h2" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85" alt="Sunglasses">
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <h2>Explore Categories</h2>
+          <p>Thoughtfully selected collections made for your everyday life.</p>
+        </div>
+
+        <div class="category-grid">
+          <article class="category-card" data-cat="Electronics" role="link" tabindex="0"><div class="category-image"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85" alt="Electronics"></div>
+            <div class="category-info">
+              <h3>Electronics</h3>
+              <p>Audio, chargers & desktop devices</p>
+            </div>
+          </article>
+
+          <article class="category-card" data-cat="Fashion" role="link" tabindex="0"><div class="category-image"><img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=900&q=85" alt="Fashion"></div>
+            <div class="category-info">
+              <h3>Fashion</h3>
+              <p>Timeless everyday apparel & outerwear</p>
+            </div>
+          </article>
+
+          <article class="category-card" data-cat="Home" role="link" tabindex="0"><div class="category-image"><img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=85" alt="Home"></div>
+            <div class="category-info">
+              <h3>Home</h3>
+              <p>Lighting, ceramics & ambient accents</p>
+            </div>
+          </article>
+        </div>
+
+        <section class="featured">
+          <div class="featured-head">
+            <div>
+              <span class="detail-label">Handpicked deals</span>
+              <h2>Featured Essentials</h2>
+            </div>
+            <a href="#shop">View all products →</a>
+          </div>
+
+          <div class="product-grid" id="featured-grid"></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         SHOP
+         ===================================================== -->
+    <section id="shop" class="page-section shop-section">
+      <div class="container">
+        <div class="section-marker">
+          <span>02</span>
+          <strong>Shop</strong>
+        </div>
+
+        <div class="shop-head">
+          <div>
+            <div class="breadcrumb">AFFSTORE CURATED CATALOG · VERIFIED INVENTORY</div>
+            <h2>All Products</h2>
+            <p id="shop-count"></p>
+          </div>
+
+          <div class="sort-box">
+            <span>☷ Sort by:</span>
+            <select id="sort" aria-label="Sort products">
+              <option value="featured">Featured</option>
+              <option value="low">Price: low to high</option>
+              <option value="high">Price: high to low</option>
+              <option value="newest">Newest</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="shop-grid" id="shop-grid"></div>
+
+        <div class="benefits">
+          <article class="benefit"><h3>🚚 Fast & Free Delivery</h3><p>Free standard shipping on orders over $50.</p></article>
+          <article class="benefit"><h3>🛡 30-Day Money Back</h3><p>Hassle-free direct returns & full refunds.</p></article>
+          <article class="benefit"><h3>◉ 24/7 Dedicated Support</h3><p>AffStore advisors ready anytime via live chat.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PRODUCT DETAIL
+         ===================================================== -->
+    <section id="product" class="page-section product-section">
+      <div class="container">
+        <div class="section-marker">
+          <span>03</span>
+          <strong>Product</strong>
+        </div>
+
+        <div class="breadcrumb" id="pd-crumb"></div>
+        <div class="product-detail-grid" id="pd"></div>
+        <div class="section-heading similar-heading">
+          <h2>Similar Products</h2>
+          <a href="#shop">View all →</a>
+        </div>
+        <div class="product-grid" id="similar-grid"></div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CART
+         ===================================================== -->
+    <section id="cart" class="page-section cart-section">
+      <div class="container">
+        <div class="section-marker">
+          <span>04</span>
+          <strong>Cart</strong>
+        </div>
+
+        <div class="delivery-banner" id="ship-banner"></div>
+        <div class="cart-title-row">
+          <h2>Your Shopping Cart <span id="cart-n"></span></h2>
+          <a href="#shop">← Continue Shopping</a>
+        </div>
+        <div class="cart-layout">
+          <div class="cart-items" id="cart-items"></div>
+          <aside class="summary">
+            <h3>Order Summary</h3>
+            <div class="summary-line"><span>Subtotal</span><strong id="s-sub"></strong></div>
+            <div class="summary-line"><span>Estimated Shipping</span><strong id="s-ship" class="free"></strong></div>
+            <div class="summary-line"><span>Estimated Tax (8%)</span><strong id="s-tax"></strong></div>
+            <div class="summary-total"><span>Order Total</span><span id="s-total"></span></div>
+            <button class="btn btn-primary btn-block" id="checkout" type="button">Proceed to Checkout 🔒</button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+    <section id="about" class="page-section about-section">
+      <div class="container">
+        <div class="section-marker">
+          <span>05</span>
+          <strong>About</strong>
+        </div>
+
+        <div class="about-intro">
+          <span class="detail-label">AffStore Story / Our Purpose</span>
+          <h2>About AffStore</h2>
+          <p>
+            Founded with a clear mission, AffStore was created to deliver durable,
+            well-designed essentials across electronics, fashion, and home goods
+            without unnecessary markups or clutter. We believe smart shopping
+            should feel straightforward, honest, and genuinely rewarding.
+          </p>
+
+          <div class="about-actions">
+            <a class="btn btn-primary" href="#shop">Explore Collection</a>
+            <a class="btn btn-secondary" href="#contact">Get in Touch</a>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=85" alt=""><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85" alt=""><img src="https://images.unsplash.com/photo-1603199506016-b9a594b593c0?auto=format&fit=crop&w=900&q=85" alt=""><img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=85" alt="">
+          <strong>AffStore Studio &amp; Fulfillment Lab</strong>
+        </div>
+
+        <div class="section-heading">
+          <span class="detail-label">The AffStore Standard</span>
+          <h2>Designed for clarity, built for life</h2>
+        </div>
+
+        <div class="standard-grid">
+          <article class="standard-card">
+            <div class="icon-box">★</div>
+            <h3>Quality Products</h3>
+            <p>Curated selection built to last, strictly vetted for reliability and everyday use.</p>
+          </article>
+
+          <article class="standard-card">
+            <div class="icon-box">🚚</div>
+            <h3>Fast Delivery</h3>
+            <p>Swift dispatch with reliable delivery on qualifying orders.</p>
+          </article>
+
+          <article class="standard-card">
+            <div class="icon-box">🔒</div>
+            <h3>Secure Payment</h3>
+            <p>Protected checkout supporting trusted payment methods and strong privacy practices.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
+    <section id="contact" class="page-section contact-section">
+      <div class="container">
+        <div class="section-marker">
+          <span>06</span>
+          <strong>Contact</strong>
+        </div>
+
+        <div class="contact-intro">
+          <span class="eyebrow">▣ Customer Concierge</span>
+          <h2>Contact Us</h2>
+          <p>Have a question about your order, shipping, or our curated products? We'd love to help.</p>
+        </div>
+
+        <div class="contact-grid">
+          <form class="form-card" action="#" method="post">
+            <h3>Send a Message</h3>
+            <p class="form-note">Our dedicated support representatives usually respond in under 2 hours.</p>
+
+            <div class="form-group">
+              <label for="full-name">Full Name *</label>
+              <input id="full-name" name="full-name" type="text" placeholder="Your full name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="topic">Subject or Topic</label>
+              <select id="topic" name="topic">
+                <option>Order Inquiry & Tracking</option>
+                <option>Returns</option>
+                <option>Product Question</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" placeholder="How can we assist you today?" required></textarea>
+            </div>
+
+            <button class="btn btn-primary btn-block" type="submit">Send Message ➤</button>
+          </form>
+
+          <aside class="channels-card">
+            <h3>Direct Channels</h3>
+
+            <div class="channel">
+              <div class="channel-icon">✉</div>
+              <div>
+                <small>EMAIL SUPPORT</small>
+                <strong>support@affstore.com</strong>
+                <small>Mon–Fri replies delivered within 24 hours</small>
+              </div>
+            </div>
+
+            <div class="channel">
+              <div class="channel-icon">☎</div>
+              <div>
+                <small>PHONE HOTLINE</small>
+                <strong>+1 (800) 555-0199</strong>
+                <small>Mon–Fri, 9:00 AM – 6:00 PM EST</small>
+              </div>
+            </div>
+
+            <div class="channel">
+              <div class="channel-icon">⌖</div>
+              <div>
+                <small>HEADQUARTERS & HUB</small>
+                <strong>742 Evergreen Terrace, Suite 100</strong>
+                <small>Seattle, WA 98101, United States</small>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <a class="logo" href="#home">Aff<span>Store</span></a>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#shop">Shop</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2025 AffStore. All rights reserved.</div>
+    </div>
+  </footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
